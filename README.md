@@ -8,7 +8,9 @@ https://docs.locust.io
 
 
 ## Requirements
-Requirements: Docker, 2 PCs/Servers
+Requirements:
+- Docker
+- 2 PCs/Servers running docker (One to host the FlaskApp, another to host the Locust LoadTester
 
 ## Usage
 1. Clone this repo into each machine
@@ -16,6 +18,8 @@ Requirements: Docker, 2 PCs/Servers
 
 Docker Flask app
 ```shell
+$ git clone https://github.com/ronpichardo/load-tester.git
+$ cd load-tester
 $ docker build . -t docker-flask
 $ docker run -d -p '5000:5000' --name=flaskapp docker-flask
 ```
@@ -24,6 +28,8 @@ $ docker run -d -p '5000:5000' --name=flaskapp docker-flask
 
 Docker command for running loadtester
 ```shell
+$ git clone https://github.com/ronpichardo/load-tester.git
+$ cd load-tester
 $ docker run -p 8089:8089 -v $PWD:/mnt/locust locustio/locust -f /mnt/locust/my_locust_file.py
 ```
 
